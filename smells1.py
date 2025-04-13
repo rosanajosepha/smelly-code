@@ -1,25 +1,25 @@
-def calculate_total_price(items):
-    total = 0
-    for item in items:
-        if item == "apple":
-            total += 1.0
-        elif item == "banana":
-            total += 0.5
-        elif item == "cherry":
-            total += 0.75
-        elif item == "mango":
-            total += 1.00
-        elif item == "pineapple":
-            total += 1.50
-        elif item == "dragonfruit":
-            total += 2.00
-        elif item == "durian":
-            total += 2.75
+def calculate_total(fruits):
+    totalPrice = 0
+    for fruit in fruits:
+        if fruit == "apple":
+            totalPrice += 1.0
+        elif fruit == "banana":
+            totalPrice += 0.5
+        elif fruit == "cherry":
+            totalPrice += 0.75
+        elif fruit == "mango":
+            totalPrice += 1.00
+        elif fruit == "pineapple":
+            totalPrice += 1.50
+        elif fruit == "dragonfruit":
+            totalPrice += 2.00
+        elif fruit == "durian":
+            totalPrice += 2.75
         else:
-            print("Unknown item: " + item)
-    if total >= 10:
-        total *= 0.9
-    return total
+            print("Unknown fruit: " + fruit)
+    if totalPrice >= 10:
+        totalPrice *= 0.9
+    return totalPrice
 
 
 if __name__ == "__main__":
