@@ -1,6 +1,7 @@
 import pytest
 
-from smells2 import Nose
+from smells2 import Nose, HumanNose, RobotNose
+
 
 ROSE = "rose"
 DAISY = "daisy"
@@ -8,19 +9,19 @@ TULIP = "tulip"
 
 
 def test_human_nose_can_smell():
-    n = Nose()
+    n = HumanNose()
     n.smell(ROSE)
     assert ROSE in n.get_smelled_smells()
 
 
 def test_robot_nose_can_smell():
-    n = Nose([], True)
+    n = RobotNose()
     n.smell(ROSE)
     assert ROSE in n.get_smelled_smells()
 
 
 def test_human_nose_has_allergies():
-    n = Nose([ROSE])
+    n = HumanNose([ROSE])
     # Test that we can smell a non-allergy odor
     n.smell(TULIP)
     assert TULIP in n.get_smelled_smells()
@@ -42,7 +43,7 @@ def test_human_nose_has_allergies():
 
 
 def test_robot_nose_has_air_capacity():
-    n = Nose([], True, 2)
+    n = RobotNose(2)
 
     # Test that we can smell 2 odors with a capacity of 2
     n.smell(ROSE)
@@ -53,7 +54,7 @@ def test_robot_nose_has_air_capacity():
         n.smell(TULIP)
 
     # Rest to reset the air capacity
-    n.rest()
+    n.reset()
 
     # Now we can smell another smell
     n.smell(TULIP)
